@@ -4,18 +4,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 .form-input-box {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .form-input {
-    /* display: grid; */
-    /* flex-direction: row; */
     height: auto;
     margin: auto;
     width: 50%;
@@ -25,13 +23,10 @@
     border-radius: 20px;
 }
 
-.form-input-commission {
+/* .form-input-commission {
     display:flex;
-    /* flex-direction: row;
-    justify-content: left; */
     align-content: space-around;
-
-}
+} */
 
 .form-input-text {
     margin: 5px 5px;
@@ -40,7 +35,7 @@
     font-weight: 300px;
     font-size: 16px;
     text-align: left;
-    padding: 5px 5px;
+    color: black;
 }
 
 .form-input-text-bold {
@@ -51,7 +46,6 @@
     font-weight: 300px;
     font-size: 16px;
     text-align: left;
-    padding: 5px 5px;
     font-weight: bold;
 }
 
@@ -77,16 +71,18 @@
 
 .btn-small {
     font-family: 'Inter';
-    /* padding: 5px 5px; */
+    padding: 5px 5px;
     font-size: 16px;
     background-color: white;
     border: 1px solid #4066f0;
     border-radius: 5px;
     color: black;
     cursor: pointer;
-    margin: 10px 10px;
-    width: 25px;
+    margin: 5px 5px;
+    width: 30px;
     height: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn:not(:last-child) {
@@ -116,7 +112,6 @@
     width: 60%;
     padding: 10px 10px;
     vertical-align: middle;
-    border: 1px solid #c0c0c0;
     border-radius: 30px;
 }
 
@@ -154,13 +149,17 @@ input, select, textarea {
     border-radius: 5px;
     color: #474e57;
     font-size: 14px;
-    padding: 5px;
+    padding: 5px 5px;
     width: 40%;
+    height: auto;
     margin: 5px 5px;
 }
 
 textarea {
     width: 80%;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    height: 40px;
 }
 
 a {
@@ -178,3 +177,138 @@ a {
   a:hover {
     color: #1d2d69;
   }
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-custom {
+    position: relative;
+    height: 18px;
+    width: 18px;
+    background-color: white;
+    border: 1px solid #4066f0;
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.checkbox-custom:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container:hover input ~ .checkbox-custom {
+    background-color: #f0f4ff;
+}
+
+.checkbox-container input:checked ~ .checkbox-custom {
+    background-color: #4066f0;
+    border-color: #4066f0;
+}
+
+.checkbox-container input:checked ~ .checkbox-custom:after {
+    display: block;
+}
+
+.checkbox-label {
+    font-family: 'Inter';
+    font-size: 14px;
+    color: #474e57;
+    font-weight: 300;
+    user-select: none;
+}
+
+.checkbox-container input:focus ~ .checkbox-custom {
+    box-shadow: 0 0 0 2px rgba(64, 102, 240, 0.3);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+  }
+  
+  .tab-switcher {
+    display: flex;
+    background-color: #fff;
+    padding: 0;
+    border-bottom: 1px solid #c0c0c0;
+    justify-content: center;
+  }
+  
+  .tab-button {
+    padding: 12px 24px;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    /* color: #474e57; */
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .tab-button:not(:last-child) {
+    margin-right: 1px;
+  }
+  
+  .tab-button:hover {
+    /* background-color: #f0f4ff; */
+    color: #4066f0;
+  }
+  
+  .tab-button.active {
+    font-weight: 700;
+    color: #4066f0;
+    /* background-color: #fff; */
+  }
+  
+  .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #4066f0;
+  }
+  
+  /* .tab-content {
+    background-color: #fff;
+    animation: fadeIn 0.3s ease;
+  } */
+  
+  @keyframes fadeIn {
+    from { opacity: 0.7; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+.form-input-commission {
+    display: flex;
+    flex-direction: column;
+    /* gap: 15px;
+    width: 100%; */
+}
