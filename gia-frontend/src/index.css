@@ -1,0 +1,188 @@
+:root {
+    --primary: #4066f0;
+    --primary-dark: #2a4ac0;
+    --primary-light: #f0f4ff;
+    --text: #1a1a1a;
+    --text-light: #666;
+    --border: #e0e0e0;
+    --bg-light: #f8f9fa;
+    --radius-lg: 16px;
+    --radius-md: 8px;
+    --radius-sm: 4px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --transition: all 0.2s ease;
+  }
+  
+  /* Базовые стили */
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+    background-color: white;
+  }
+  
+  /* Контейнеры */
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .supply {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Формы */
+  .form-input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    margin: 0 auto;
+  }
+  
+  .form-input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(64, 102, 240, 0.1);
+  }
+  
+  .form-input-text {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    margin: 0.25rem 0;
+  }
+  
+  .form-input-text-bold {
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  /* Кнопки */
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+  
+  .btn-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    background: white;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+  }
+  
+  .btn-small:hover {
+    background: var(--primary);
+    color: white;
+  }
+  
+  /* Таблицы */
+  .table {
+    width: 100%;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .table th {
+    background: var(--bg-light);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+  }
+  
+  .table td {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border);
+  }
+  
+  /* Вкладки */
+  .tab-switcher {
+    display: flex;
+    background: var(--bg-light);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  
+  .tab-button {
+    padding: 0.875rem 1.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .tab-button.active {
+    font-weight: 600;
+    color: var(--primary);
+  }
+  
+  .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 3px;
+    background: var(--primary);
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .supply {
+      padding: 1rem;
+    }
+    
+    .form-input, .table {
+      width: 100%;
+    }
+    
+    .btn-group {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }

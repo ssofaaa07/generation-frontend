@@ -1,10 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 
-const DOWNLOAD_URL = 'http://localhost:8080/template';
-const TEMPLATE_FILE_NAME = "Данные о ВКР студентов.xlsx";
+const DOWNLOAD_URL = 'http://localhost:8080/template-mark';
+const TEMPLATE_FILE_NAME = "excel-template.xlsx";
 
-const DownloadTemplateComponent = () => {
+const DownloadTemplateMarkComponent = () => {
   const handleDownload = async () => {
     try {
       const response = await axios.get(DOWNLOAD_URL, {
@@ -43,4 +43,4 @@ const DownloadTemplateComponent = () => {
   );
 }
 
-export default DownloadTemplateComponent
+export default DownloadTemplateMarkComponent

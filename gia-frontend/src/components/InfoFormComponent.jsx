@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-const InfoFormComponent = ({ onDirectionChange, directions, onFacultyChange, faculties, onQualificationChange, onFormEducationChange}) => {
+const InfoFormComponent = ({ onDirectionChange, directions, onFacultyChange, faculties, onQualificationChange, onFormEducationChange, onDepartmentChange}) => {
     const [faculty, setFaculty] = useState('');
     const [direction, setDirection] = useState(''); // Состояние для хранения введённого значения
     const [qualification, setQualification] = useState(''); 
     const [formEducation, setFormEducation] = useState('');
+    const [department, setDepartment] = useState('');
 
     const handleFacultyChange = (e) => {
         const value = e.target.value;
@@ -28,6 +29,12 @@ const InfoFormComponent = ({ onDirectionChange, directions, onFacultyChange, fac
         const value = e.target.value;
         setFormEducation(value); // Обновляем состояние
         onFormEducationChange(value); // Передаём значение в родительский компонент
+    };
+
+    const handleDepartmentChange = (e) => {
+        const value = e.target.value;
+        setDepartment(value); // Обновляем состояние
+        onDepartmentChange(value); // Передаём значение в родительский компонент
     };
 
     return (
@@ -67,6 +74,24 @@ const InfoFormComponent = ({ onDirectionChange, directions, onFacultyChange, fac
                         {direction}
                     </option>
                 ))}
+            </datalist>
+            <br/>
+            <label className="form-input-text">Кафедра:</label>
+            <input
+                type="text"
+                list="department-list" // Связываем с выпадающим списком
+                placeholder="Кафедра"
+                value={department}
+                onChange={handleDepartmentChange}
+                required
+            />
+            <datalist id="department-list">
+                <option value="">Выберите кафедру</option>
+                <option value="Информационных технологий управления">Информационных технологий управления</option>
+                <option value="Информационных систем">Информационных систем</option>
+                <option value="Программирования и информационных технологий">Программирования и информационных технологий</option>
+                <option value="Цифровых технологий">Цифровых технологий</option>
+                <option value="Технологий обработки и защиты информации">Технологий обработки и защиты информации</option>
             </datalist>
             <br/>
             <label className="form-input-text">Квалификация:</label>
